@@ -12,11 +12,11 @@ def is_unique_no_additional_ds(s: str):
     If we are provided a mutable string, we could sort in place.
     Time: O(n log(n)), Space: O(1)
     """
-    l = list(sorted(s))
+    l = list(sorted(s))#--> By default python uses TimSort for "sorted()" method and Timsort uses hybrid insertion and merge(outplace) sort. So, first this whole algo is mixture of inplace and outplace and second space complexity would be O(n)(ie n(list) + n(array used by Timsort) + n(used by merge sort)=3n)  
     for i, c in enumerate(l):
-        if i < len(l) - 2:
-            if c == l[i + 1]:
-                return False
+#         if i < len(l) - 2:#--> Due to this line program won't check last two alphabets and gives wrong result in case of "ABCC".
+        if c == l[i + 1]:
+            return False
 
     return True
 
